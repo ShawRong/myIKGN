@@ -12,7 +12,7 @@ import os
 from math import radians, cos, sin, asin, sqrt
 from collections import deque,Counter
 from sklearn.utils import shuffle as skshuffle
-from model.IKGN import IKGN
+from model.IKGN_myver import IKGN
 from utility.loader_KGPOI import *
 import argparse
 import nni
