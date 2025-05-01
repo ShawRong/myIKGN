@@ -106,11 +106,11 @@ class IKGN(nn.Module):
         hh = (param.data for name, param in self.named_parameters() if 'weight_hh' in name)
         b = (param.data for name, param in self.named_parameters() if 'bias' in name)
         for t in ih:
-            nn.init.xavier_uniform(t)
+            nn.init.xavier_uniform_(t)
         for t in hh:
-            nn.init.orthogonal(t)
+            nn.init.orthogonal_(t)
         for t in b:
-            nn.init.constant(t, 0)
+            nn.init.constant_(t, 0)
 
     def calc_kg_loss(self, h, r, pos_t, neg_t):
         """
@@ -255,7 +255,7 @@ class IKGN(nn.Module):
                 h2 = Variable(torch.zeros(1,1, self.hidden_units)).cuda()  #[1, embedding_dim]
                 out2,h2 = self.rel_rnn(seq_rel, h2)
                 seq_W =  Variable(torch.FloatTensor(sequence_length-1,sequence_len)).cuda()
-                nn.init.xavier_uniform(seq_W)
+                nn.init.xavier_uniform_(seq_W)
                 hidden_sequence = torch.mm(seq_W, out2.squeeze())
                 session_list.append(hidden_sequence.unsqueeze(0))
             sessions_represent = torch.cat(session_list, dim=0).transpose(0,1)  #[sequence_length, len(session), embedding_dim]

@@ -85,7 +85,7 @@ def caculate_poi_distance_time(args, poi_coors, trans, temp_max, distance_max):
                 sim_matrix[poi_current][poi_target] = tem_dis_score[tuple([i,j])]
                 sim_matrix[poi_target][poi_current] = tem_dis_score[tuple([i,j])]
             distance_between = geodistance(poi_current_coor[1], poi_current_coor[0], poi_target_coor[1], poi_target_coor[0])
-            distance_between = int(np.float(distance_between)/0.06)
+            distance_between = int(float(distance_between)/0.06)
             sim_matrix[poi_current][poi_target] = distance_between/distance_max
             sim_matrix[poi_target][poi_current] = distance_between/distance_max
     # pickle.dump(sim_matrix, open(args['data_dir'] + args['data'] +'_temporal_distance.pkl', 'wb'))

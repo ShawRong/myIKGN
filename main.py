@@ -19,6 +19,11 @@ import logging
 import time
 from torch.nn.parameter import Parameter
 
+torch.cuda.current_device()
+torch.cuda._initialized = True
+import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
 logger = logging.getLogger('STKGRec')
 
 def train_network(network,file,args, criterion = None):

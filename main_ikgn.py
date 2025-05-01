@@ -12,8 +12,8 @@ import os
 from math import radians, cos, sin, asin, sqrt
 from collections import deque,Counter
 from sklearn.utils import shuffle as skshuffle
-from model.IKGN_myver import IKGN
-from utility.loader_KGPOI import *
+from model.IKGN import IKGN
+from utility.loader_KGPOI_ikgn import *
 import argparse
 import nni
 import logging
