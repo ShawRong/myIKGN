@@ -95,6 +95,12 @@ class IKGN(nn.Module):
         for k in range(args['layers']):
             self.aggregator_layers.append(Aggregator(args['hidden_size'], args['hidden_size'], 0.1,args['aggregator_type']))
 
+        initializer = nn.init.xavier_uniform_
+        self.A_in = initializer(torch.empty(self.n_users + self.n_locs+self.n_category, self.n_users + self.n_locs+self.n_category))
+        self.A_in= nn.Parameter(self.A_in)
+
+        self.A_in.requires_grad = False
+
     def init_weights(self):
         ih = (param.data for name, param in self.named_parameters() if 'weight_ih' in name)
         hh = (param.data for name, param in self.named_parameters() if 'weight_hh' in name)
