@@ -87,7 +87,7 @@ class IKGN(nn.Module):
         self.trans_rel = nn.Linear(2*self.hidden_units,self.hidden_units)
         self.trans_att = nn.Linear(self.hidden_units,self.hidden_units)
         self.init_weights() 
-        self.W_R = nn.Parameter(torch.Tensor(self.n_tim_rel+self.n_tim_dis_gap,  self.emb_size,  self.emb_size))
+        self.W_R = nn.Parameter(torch.Tensor((self.n_tim_rel+self.n_tim_dis_gap)*2,  self.emb_size,  self.emb_size))
         nn.init.xavier_uniform_(self.W_R, gain=nn.init.calculate_gain('relu'))
         self.kg_l2loss_lambda = args['kg_lambda']
 
