@@ -162,3 +162,7 @@ tail -f stkg_logs/out*.log
     * Layer count: 3
     * Batch size: 128
     * Learning rate: 0.0001
+
+# Reference
+STKGRec: https://github.com/WeiChen3690/STKGRec
+IKGN: https://github.com/Jungle123456/IKGN
