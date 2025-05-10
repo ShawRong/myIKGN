@@ -74,8 +74,6 @@ scancel <job_id>
 tail -f stkg_logs/out*.log
 ```
 
-# IKGN - Interactive Knowledge Graph Network
-
 
 ## Project Structure
 
@@ -165,4 +163,5 @@ tail -f stkg_logs/out*.log
 
 # Reference
 STKGRec: https://github.com/WeiChen3690/STKGRec
+
 IKGN: https://github.com/Jungle123456/IKGN
